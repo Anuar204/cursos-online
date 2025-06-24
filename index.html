@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma de Cursos</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Éxodo Digital – Plataforma de Cursos</title>
+  
+  <!-- Enlace a tu archivo CSS (lo crearemos en el siguiente paso) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Bootstrap para diseño responsivo y componentes modernos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- Menú de navegación -->
+  <!-- Barra de navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Cursos Online</a>
+      <a class="navbar-brand" href="#">Éxodo Digital</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
           <li class="nav-item"><a class="nav-link" href="#carrito">Carrito</a></li>
         </ul>
@@ -26,64 +28,38 @@
     </div>
   </nav>
 
-  <!-- Banner -->
-  <header class="banner">
-    <img src="img/banner.jpg" alt="Banner de Cursos" class="img-fluid w-100">
+  <!-- Sección de Bienvenida -->
+  <header class="hero">
+    <img class="img-fluid w-100" src="img/banner.webp" alt="Banner de Cursos">
+    <div class="container text-center py-5">
+      <h1>Explora nuestros cursos digitales</h1>
+      <p>Impulsa tu aprendizaje en tecnología y habilidades del futuro</p>
+    </div>
   </header>
 
-  <!-- Sección de Cursos -->
+  <!-- Catálogo de cursos -->
   <section id="cursos" class="container my-5">
-    <div class="row">
-      <!-- Curso IA -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="img/ia.jpg" class="card-img-top" alt="Curso de IA">
-          <div class="card-body">
-            <h5 class="card-title">Inteligencia Artificial</h5>
-            <p class="card-text">Precio: $100</p>
-            <button class="btn btn-primary" onclick="agregarAlCarrito('IA', 100)">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Curso Base de Datos -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="img/bd.jpg" class="card-img-top" alt="Curso de Base de Datos">
-          <div class="card-body">
-            <h5 class="card-title">Base de Datos</h5>
-            <p class="card-text">Precio: $80</p>
-            <button class="btn btn-primary" onclick="agregarAlCarrito('Base de Datos', 80)">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Curso Java -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="img/java.jpg" class="card-img-top" alt="Curso de Java">
-          <div class="card-body">
-            <h5 class="card-title">Programación Java</h5>
-            <p class="card-text">Precio: $90</p>
-            <button class="btn btn-primary" onclick="agregarAlCarrito('Java', 90)">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Curso Office -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="img/office.jpg" class="card-img-top" alt="Curso de Office">
-          <div class="card-body">
-            <h5 class="card-title">Microsoft Office</h5>
-            <p class="card-text">Precio: $70</p>
-            <button class="btn btn-primary" onclick="agregarAlCarrito('Office', 70)">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
+    <div class="row" id="contenedor-cursos">
+      <!-- Aquí se cargarán los cursos dinámicamente desde JS -->
     </div>
   </section>
 
-  <!-- Carrito de Compras -->
+  <!-- Carrito -->
   <section id="carrito" class="container my-5">
-    <h2>
+    <h2 class="mb-3">🛒 Tu carrito</h2>
+    <ul id="lista-carrito" class="list-group"></ul>
+    <div class="mt-3">
+      <strong>Total: $<span id="total-carrito">0</span></strong>
+    </div>
+  </section>
+
+  <!-- Botón flotante del chatbot -->
+  <a href="https://www.chatbase.co/chatbot-iframe/eIrzI-2lWZ2UNDvJmKXhr" target="_blank" id="floating-btn">
+    🚀 ¡Habla con tu Asistente Virtual Ahora!
+  </a>
+
+  <!-- Enlace al archivo JS externo (lo crearemos luego) -->
+  <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

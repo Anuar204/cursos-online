@@ -1,43 +1,71 @@
-/js/script.js
-// Array para almacenar los cursos agregados al carrito
-let carrito = [];
+// ========== BASE DE DATOS DE CURSOS ==========
+const cursos = [
+  { id: 1, nombre: "Inteligencia Artificial", precio: 100, imagen: "img/ia.jpg" },
+  { id: 2, nombre: "Base de Datos", precio: 80, imagen: "img/bd.jpg" },
+  { id: 3, nombre: "Programación Java", precio: 90, imagen: "img/java.jpg" },
+  { id: 4, nombre: "Microsoft Office", precio: 70, imagen: "img/office.jpg" },
+];
 
-// Función para agregar cursos al carrito
-function agregarAlCarrito(curso, precio) {
-  carrito.push({ curso, precio });
-  actualizarCarrito();
+const carrito = [];
+
+// ========== FUNCIONES ==========
+
+// Renderizar los cursos en pantalla
+function cargarCursos() {
+  const contenedor = document.getElementById("contenedor-cursos");
+  cursos.forEach(curso => {
+    const card = document.createElement("div");
+    card.classList.add("col-md-3");
+    card.innerHTML = `
+      <div class="card mb-4">
+        <img src="${curso.imagen}" class="card-img-top" alt="Curso de ${curso.nombre}">
+        <div class="card-body">
+          <h5 class="card-title">${curso.nombre}</h5>
+          <p class="card-text">Precio: $${curso.precio}</p>
+          <button class="btn btn-primary" onclick="agregarAlCarrito(${curso.id})">Agregar al carrito</button>
+        </div>
+      </div>
+    `;
+    contenedor.appendChild(card);
+  });
 }
 
-// Función para actualizar el contenido del carrito en pantalla
+// Agregar un curso al carrito
+function agregarAlCarrito(id) {
+  const curso = cursos.find(curso => curso.id === id);
+  if (curso) {
+    carrito.push(curso);
+    actualizarCarrito();
+  }
+}
+
+// Actualizar visualmente el carrito
 function actualizarCarrito() {
   const lista = document.getElementById("lista-carrito");
-  const total = document.getElementById("total");
+  const total = document.getElementById("total-carrito");
 
-  // Limpiar lista antes de volver a renderizar
   lista.innerHTML = "";
   let suma = 0;
 
-  // Recorrer los elementos del carrito
-  carrito.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.className = "list-group-item d-flex justify-content-between align-items-center";
-
-    // Contenido del item con botón de eliminar
-    li.innerHTML = `
-      ${item.curso} - $${item.precio}
-      <button class="btn btn-sm btn-danger" onclick="eliminarItem(${index})">Eliminar</button>
+  carrito.forEach((curso, index) => {
+    const item = document.createElement("li");
+    item.classList.add("list-group-item");
+    item.innerHTML = `
+      ${curso.nombre} - $${curso.precio}
+      <button class="btn btn-sm btn-danger float-end" onclick="eliminarCurso(${index})">X</button>
     `;
-
-    lista.appendChild(li);
-    suma += item.precio;
+    lista.appendChild(item);
+    suma += curso.precio;
   });
 
-  // Mostrar el total actualizado
   total.textContent = suma;
 }
 
-// Función para eliminar un curso del carrito por su índice
-function eliminarItem(index) {
+// Eliminar curso del carrito por índice
+function eliminarCurso(index) {
   carrito.splice(index, 1);
   actualizarCarrito();
 }
+
+// ========== INICIALIZACIÓN ==========
+document.addEventListener("DOMContentLoaded", cargarCursos);
