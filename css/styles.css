@@ -1,64 +1,92 @@
-/* ========== ESTILOS GENERALES ========== */
+/* Estilos generales */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f9;
+  background-color: #f8f9fa;
   margin: 0;
   padding: 0;
 }
 
-/* ========== ENCABEZADO / HERO ========== */
+/* Hero / Banner */
 .hero {
-  background: linear-gradient(135deg, #0078D4, #00b7c2);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ========== CARDS DE CURSOS ========== */
+.hero .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Cards de cursos */
 .card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* ========== CARRITO DE COMPRAS ========== */
-#carrito h2 {
-  color: #0078D4;
+.card-img-top {
+  max-height: 180px;
+  object-fit: cover;
 }
 
-#lista-carrito li {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
+/* Carrito */
+#carrito {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* ========== BOTÓN FLOTANTE DEL CHATBOT ========== */
+/* Botón flotante del chatbot */
 #floating-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 15px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #0078D4;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0d6efd;
   color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
   text-decoration: none;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
 }
 
 #floating-btn:hover {
-  transform: scale(1.07);
-  background-color: #005fa3;
+  background-color: #0b5ed7;
+  transform: scale(1.05);
 }
+
+/* Títulos */
+h1, h2, h5 {
+  color: #212529;
+}
+
+/* Precio */
+.card-text {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .hero .container {
+    position: static;
+    transform: none;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
 
 
 
