@@ -1,10 +1,10 @@
-// ========== BASE DE DATOS DE CURSOS ==========
 const cursos = [
-  { id: 1, nombre: "Inteligencia Artificial", precio: 100, imagen: "../img/inteligencia-artificial.webp" },
-  { id: 2, nombre: "Base de Datos", precio: 80, imagen: "../img/base-de-datos.webp" },
-  { id: 3, nombre: "Programación Java", precio: 90, imagen: "../img/java.webp" },
-  { id: 4, nombre: "Microsoft Office", precio: 70, imagen: "../img/oficina.webp" },
+  { id: 1, nombre: "Inteligencia Artificial", precio: 100, imagen: "../img/inteligencia-artificial.webp", categoria: "Tecnología" },
+  { id: 2, nombre: "Base de Datos", precio: 80, imagen: "../img/base-de-datos.webp", categoria: "Tecnología" },
+  { id: 3, nombre: "Programación Java", precio: 90, imagen: "../img/java.webp", categoria: "Tecnología" },
+  { id: 4, nombre: "Microsoft Office", precio: 70, imagen: "../img/oficina.webp", categoria: "Ofimática" }
 ];
+
 
 const carrito = [];
 
